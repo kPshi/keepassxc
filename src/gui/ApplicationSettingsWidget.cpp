@@ -390,6 +390,7 @@ void ApplicationSettingsWidget::saveSettings()
 
     if (!config()->get(Config::RememberLastKeyFiles).toBool()) {
         config()->remove(Config::LastKeyFiles);
+        config()->remove(Config::LastChallengeResponse);
         config()->remove(Config::LastDir);
     }
 
