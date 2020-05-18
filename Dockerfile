@@ -6,9 +6,6 @@ RUN : \
     build-essential \
     cmake \
     git \
-  && :
-
-RUN apt-get install -y \
     libgcrypt20-dev \
     zlib1g-dev \
     libargon2-0-dev \
@@ -32,7 +29,8 @@ RUN apt-get install -y \
     libyubikey-dev \
     qttools5-dev \
     qttools5-dev-tools \
-    zlib1g-dev
+    zlib1g-dev \
+  && apt-get clean
   
 RUN : \
   && git clone https://github.com/keepassxreboot/keepassxc.git \
