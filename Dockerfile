@@ -43,5 +43,5 @@ RUN : \
   && cd build \
   && cmake -DWITH_XC_ALL=ON .. \
   && make \
-  :
+  && :
 
