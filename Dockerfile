@@ -32,14 +32,21 @@ RUN : \
     zlib1g-dev \
   && apt-get clean
   
+RUN git clone https://github.com/keepassxreboot/keepassxc.git
+
+WORKDIR keepassxc
+
 RUN : \
-  && git clone https://github.com/keepassxreboot/keepassxc.git \
-  && cd keepassxc \
   && git pull \
   && git checkout master \
   && mkdir build \
-  && cd build \
-  && cmake -DWITH_XC_ALL=ON .. \
-  && make \
   && :
 
+WORKDIR build
+
+RUN : \
+  && cmake -DWITH_XC_ALL=ON -DCMAKE_BUILD_TYPE=Release .. \
+  && make -j8 \
+  && :
+
+RUN make install
