@@ -29,9 +29,11 @@ RUN apt-get install -y \
     libxi-dev \
     libxtst-dev \
     libykpers-1-dev \
+    libyubikey-dev \
+    qttools5-dev \
+    qttools5-dev-tools \
     zlib1g-dev
   
-
 RUN : \
   && git clone https://github.com/keepassxreboot/keepassxc.git \
   && cd keepassxc \
